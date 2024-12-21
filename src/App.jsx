@@ -1,4 +1,4 @@
-// Author: TrungQuanDev | https://youtube.com/@trungquandev
+
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import Login from '~/pages/Login'
 import Dashboard from '~/pages/Dashboard'

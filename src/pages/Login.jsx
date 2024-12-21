@@ -1,4 +1,4 @@
-// Author: TrungQuanDev | https://youtube.com/@trungquandev
+
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { Card as MuiCard } from '@mui/material'
@@ -50,8 +50,8 @@ function Login() {
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
               <Box>
-                <Typography>Hint: trungquandev.official@gmail.com</Typography>
-                <Typography>Pass: trungquandev@123</Typography>
+                <Typography>Hint: mducday@gmail.com</Typography>
+                <Typography>Pass: mducday@123</Typography>
               </Box>
             </Box>
             <Box sx={{ padding: '0 1em 1em 1em' }}>

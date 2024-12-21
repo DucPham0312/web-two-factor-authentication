@@ -1,4 +1,4 @@
-// Author: TrungQuanDev | https://youtube.com/@trungquandev
+
 import authorizedAxiosInstance from '~/utils/authorizedAxios'
 import { API_ROOT } from '~/utils/constants'
 

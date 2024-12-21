@@ -1,10 +1,10 @@
 {
-  "name": "web-base-2fa-two-factor-authentication-trungquandev",
+  "name": "web-base-2fa-two-factor-authentication",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": "TrungQuanDev - Một Lập Trình Viên",
-  "description": "https://youtube.com/@trungquandev",
+  "author": "Mnhducday",
+  "description": "2FA",
   "engines": {
     "node": "20.x"
   },

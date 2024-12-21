@@ -1,4 +1,4 @@
-// Author: TrungQuanDev | https://youtube.com/@trungquandev
+
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import Box from '@mui/material/Box'
