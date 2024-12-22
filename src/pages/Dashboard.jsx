@@ -35,6 +35,15 @@ function Dashboard() {
     navigate('/login')
   }
 
+  const handleSuccessSetup2FA = (updatedUser) => {
+    //Update lại thông tin user trong state component
+    setUser(updatedUser)
+    //Update lại thông tin user trong LocalStorage
+    localStorage.setItem('userInfo', JSON.stringify(updatedUser))
+    //Đóng modalmodal
+    setOpenSetup2FA(false)
+  }
+
   if (!user) {
     return (
       <Box sx={{
@@ -66,12 +75,12 @@ function Dashboard() {
         isOpen={openSetup2FA}
         toggleOpen={setOpenSetup2FA}
         user={user}
+        handleSuccessSetup2FA={handleSuccessSetup2FA}
       />
 
       {/* Modal yêu cầu xác thực 2FA */}
       {/* Với điều kiện user đã bật tính năng 2FA, và user chưa xác thực 2FA ngay sau khi đăng nhập ở lần tiếp theo */}
-      {/* <Require2FA /> */}
-      {/* {user.require_2fa && !user.is_2fa_verified && <Require2FA />} */}
+      {user.require_2fa && !user.is_2fa_verified && <Require2FA />}
 
       <Box>
         <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
