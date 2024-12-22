@@ -35,3 +35,8 @@ export const setup2FA_API = async (userId, otpToken) => {
   const res = await authorizedAxiosInstance.post(`${API_ROOT}/v1/users/${userId}/setup_2fa`, { otpToken })
   return res.data
 }
+
+export const verify2FA_API = async (userId, otpToken) => {
+  const res = await authorizedAxiosInstance.put(`${API_ROOT}/v1/users/${userId}/verify_2fa`, { otpToken })
+  return res.data
+}

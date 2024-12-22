@@ -44,6 +44,13 @@ function Dashboard() {
     setOpenSetup2FA(false)
   }
 
+  const handleSuccessVerify2FA = (updatedUser) => {
+     //Update lại thông tin user trong state component
+     setUser(updatedUser)
+     //Update lại thông tin user trong LocalStorage
+     localStorage.setItem('userInfo', JSON.stringify(updatedUser))
+  }
+
   if (!user) {
     return (
       <Box sx={{
@@ -80,7 +87,12 @@ function Dashboard() {
 
       {/* Modal yêu cầu xác thực 2FA */}
       {/* Với điều kiện user đã bật tính năng 2FA, và user chưa xác thực 2FA ngay sau khi đăng nhập ở lần tiếp theo */}
-      {user.require_2fa && !user.is_2fa_verified && <Require2FA />}
+      {user.require_2fa && !user.is_2fa_verified && 
+        <Require2FA 
+        user={user}
+        handleSuccessVerify2FA={handleSuccessVerify2FA}
+        />
+      }
 
       <Box>
         <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
