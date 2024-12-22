@@ -65,6 +65,7 @@ function Dashboard() {
       <Setup2FA
         isOpen={openSetup2FA}
         toggleOpen={setOpenSetup2FA}
+        user={user}
       />
 
       {/* Modal yêu cầu xác thực 2FA */}
@@ -73,11 +74,11 @@ function Dashboard() {
       {/* {user.require_2fa && !user.is_2fa_verified && <Require2FA />} */}
 
       <Box>
-        <a style={{ color: 'inherit', textDecoration: 'none' }} href='https://youtube.com/@trungquandev' target='_blank' rel='noreferrer'>
+        <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
           <img
             style={{ width: '100%', height: '180px', borderRadius: '6px', objectFit: 'cover' }}
-            src="src/assets/trungquandev-mot-lap-trinh-vien-Youtube-Cover-3556x2000.png"
-            alt="cover-trungquandev-mot-lap-trinh-vien"
+            src="src/assets/cover-bg-img.jpg"
+            alt="cover-page"
           />
         </a>
       </Box>
@@ -128,8 +129,8 @@ function Dashboard() {
       <Box sx={{ textAlign: 'right' }}>
         Author:&nbsp;
         <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>
-          <a style={{ color: 'inherit', textDecoration: 'none' }} href='https://youtube.com/@trungquandev' target='_blank' rel='noreferrer'>
-            TrungQuanDev - Một Lập Trình Viên
+          <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
+            MinhducDay
           </a>
         </Typography>
       </Box>

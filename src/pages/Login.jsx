@@ -8,7 +8,7 @@ import Zoom from '@mui/material/Zoom'
 import Alert from '@mui/material/Alert'
 import { useForm } from 'react-hook-form'
 import Typography from '@mui/material/Typography'
-import TrungQuanDevIcon from '../assets/trungquandev-logo.png'
+import LogoIcon from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
 import { loginAPI } from '~/apis'
 
@@ -44,8 +44,8 @@ function Login() {
         <Zoom in={true} style={{ transitionDelay: '200ms' }}>
           <MuiCard sx={{ minWidth: 480, maxWidth: 480, marginTop: '6em', p: '2em 1em', borderRadius: 2 }}>
             <Box sx={{ width: '70px', bgcolor: 'white', margin: '0 auto' }}>
-              <a style={{ color: 'inherit', textDecoration: 'none' }} href='https://youtube.com/@trungquandev' target='_blank' rel='noreferrer'>
-                <img src={TrungQuanDevIcon} alt='trungquandev' width='100%' />
+              <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
+                <img src={LogoIcon} alt='logoIcon' width='100%' />
               </a>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>

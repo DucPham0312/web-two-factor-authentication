@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
@@ -8,11 +8,21 @@ import SecurityIcon from '@mui/icons-material/Security'
 import CancelIcon from '@mui/icons-material/Cancel'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import { get2FA_QRCodeAPI } from '~/apis'
 
-// Tài liệu về Material Modal rất dễ ở đây: https://mui.com/material-ui/react-modal/
-function Setup2FA({ isOpen, toggleOpen }) {
+// Tài liệu Material Modal: https://mui.com/material-ui/react-modal/
+function Setup2FA({ isOpen, toggleOpen, user }) {
   const [otpToken, setConfirmOtpToken] = useState('')
   const [error, setError] = useState(null)
+  const [qrCodeImageUrl, setQrCodeImageUrl] = useState(null)
+  
+  useEffect(() => {
+    if(isOpen) {
+      get2FA_QRCodeAPI(user._id).then(res => {
+        setQrCodeImageUrl(res.qrcode)
+      })
+    }
+  }, [isOpen, user._id])
 
   const handleCloseModal = () => {
     toggleOpen(!isOpen)
@@ -62,12 +72,15 @@ function Setup2FA({ isOpen, toggleOpen }) {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2, p: 1 }}>
-          <img
-            style={{ width: '100%', maxWidth: '250px', objectFit: 'contain' }}
-            src="src/assets/trungquandev-qr-code.png"
+          {!qrCodeImageUrl
+            ? <span>Loading...</span>
+            : <img
+            style={{ width: '100%', maxWidth: '200px', objectFit: 'contain' }}
+            src={qrCodeImageUrl}
             alt="card-cover"
           />
-
+          }
+         
           <Box sx={{ textAlign: 'center' }}>
             Quét mã QR trên ứng dụng <strong>Google Authenticator</strong> hoặc <strong>Authy</strong> của bạn.<br />Sau đó nhập mã gồm 6 chữ số và click vào <strong>Confirm</strong> để xác nhận.
           </Box>
@@ -99,8 +112,8 @@ function Setup2FA({ isOpen, toggleOpen }) {
 
           <Box>
             <Typography variant="span" sx={{ fontWeight: 'bold', fontSize: '0.9em', color: '#8395a7', '&:hover': { color: '#fdba26' } }}>
-              <a style={{ color: 'inherit', textDecoration: 'none' }} href='https://youtube.com/@trungquandev' target='_blank' rel='noreferrer'>
-                TrungQuanDev - Một Lập Trình Viên
+              <a style={{ color: 'inherit', textDecoration: 'none' }} href='' target='_blank' rel='noreferrer'>
+                MinhducDay
               </a>
             </Typography>
           </Box>
